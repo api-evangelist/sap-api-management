@@ -10,9 +10,9 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - API Management
-  - SAP
   - Developer Portal
   - Enterprise
+  - SAP
 url: >-
   https://raw.githubusercontent.com/api-evangelist/sap-api-management/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,8 +28,8 @@ apis:
     humanURL: https://help.sap.com/docs/sap-api-management
     tags:
       - API Management
-      - SAP BTP
       - Developer Portal
+      - SAP BTP
     properties:
       - type: Documentation
         url: https://help.sap.com/docs/sap-api-management
@@ -49,9 +49,9 @@ apis:
       full API lifecycle including creation, versioning, and publishing of APIs.
     humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/build-apis
     tags:
+      - API Lifecycle
       - API Portal
       - API Proxy
-      - API Lifecycle
       - REST
     properties:
       - type: Documentation
@@ -70,10 +70,10 @@ apis:
       API discovery and consumption.
     humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/consume-apis
     tags:
-      - Developer Portal
       - API Catalog
-      - Self Service
+      - Developer Portal
       - SAP BTP
+      - Self Service
     properties:
       - type: Documentation
         url: https://help.sap.com/docs/sap-api-management/sap-api-management/consume-apis
@@ -89,8 +89,8 @@ apis:
     humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/analyze-apis
     tags:
       - Analytics
-      - Monitoring
       - Metrics
+      - Monitoring
       - Reporting
     properties:
       - type: Documentation
