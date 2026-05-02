@@ -16,7 +16,8 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/sap-api-management/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-03-18'
+modified: '2026-05-02'
+x-profiled: '2026-05'
 specificationVersion: '0.19'
 apis:
   - aid: sap-api-management:sap-api-management
@@ -65,6 +66,10 @@ apis:
       - type: OpenAPI
         url: >-
           https://raw.githubusercontent.com/api-evangelist/sap-api-management/refs/heads/main/openapi/sap-api-management-portal-openapi.yml
+      - type: JSONSchema
+        url: json-schema/sap-api-management-api-proxy-schema.json
+      - type: JSONSchema
+        url: json-schema/sap-api-management-api-product-schema.json
   - aid: sap-api-management:sap-api-business-hub-enterprise
     name: SAP API Business Hub Enterprise API
     description: >-
@@ -133,6 +138,14 @@ common:
     url: https://www.youtube.com/@SAPTechnology
   - type: Stack Overflow
     url: https://stackoverflow.com/questions/tagged/sap-api-management
+  - type: Vocabulary
+    url: vocabulary/sap-api-management-vocabulary.yml
+  - type: SpectralRules
+    url: rules/sap-api-management-rules.yml
+  - type: Capabilities
+    url: capabilities/api-lifecycle-management.yaml
+  - type: JSONLD
+    url: json-ld/sap-api-management-context.jsonld
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
