@@ -1,0 +1,125 @@
+vocabulary:
+  provider: SAP API Management
+  description: >-
+    Domain vocabulary for SAP API Management covering API lifecycle management,
+    developer portal concepts, policy management, and SAP BTP integration.
+  created: '2026-05-02'
+  modified: '2026-05-02'
+  terms:
+    - term: API Proxy
+      definition: >-
+        A managed API facade in SAP API Management that sits in front of
+        a backend service. It applies policies for security, traffic management,
+        mediation, and monitoring before forwarding requests to the target system.
+      tags:
+        - Core
+        - API Lifecycle
+        - Gateway
+
+    - term: API Product
+      definition: >-
+        A bundle of one or more API proxies published to the developer portal
+        as a cohesive unit with defined access levels and usage plans.
+      tags:
+        - Core
+        - Developer Portal
+        - Monetization
+
+    - term: API Provider
+      definition: >-
+        A registered backend system in SAP API Management that acts as the
+        data source or service for API proxies. Can be on-premise or cloud-based.
+      tags:
+        - Backend
+        - Integration
+        - Core
+
+    - term: Developer Portal
+      definition: >-
+        The self-service portal (API Business Hub Enterprise) where developers
+        discover, subscribe to, and consume API products. Provides API
+        documentation, test console, and application registration.
+      tags:
+        - Developer Experience
+        - Portal
+        - Self Service
+
+    - term: Policy
+      definition: >-
+        A configuration block in SAP API Management that enforces behaviors
+        on an API proxy, such as OAuth authentication, rate limiting, response
+        caching, data masking, or request/response transformation.
+      tags:
+        - Security
+        - Traffic Management
+        - Configuration
+
+    - term: Key Value Map
+      definition: >-
+        A persistent runtime store for configuration values in SAP API Management.
+        Policies can read KVM entries at runtime to inject credentials, URLs,
+        or other environment-specific values.
+      tags:
+        - Configuration
+        - Security
+        - Runtime
+
+    - term: API Business Hub Enterprise
+      definition: >-
+        SAP's self-service developer portal for API Management (previously
+        API Business Hub). Provides API catalog browsing, documentation,
+        sandbox testing, and application subscription management.
+      tags:
+        - Portal
+        - Developer Experience
+        - SAP BTP
+
+    - term: SAP BTP
+      definition: >-
+        SAP Business Technology Platform — the cloud platform hosting SAP
+        API Management alongside Integration Suite, HANA Cloud, and other
+        SAP cloud services.
+      tags:
+        - Platform
+        - Cloud
+        - SAP
+
+    - term: OData
+      definition: >-
+        Open Data Protocol — an OASIS standard for RESTful APIs. The SAP API
+        Management management API uses OData v2 conventions for entity
+        set operations with $filter, $top, $skip, and $select support.
+      tags:
+        - Standard
+        - Protocol
+        - API
+
+    - term: API Lifecycle
+      definition: >-
+        The full cycle of API management activities in SAP: design, import,
+        test, publish, secure, monitor, deprecate, and retire. SAP API
+        Management provides tooling for each lifecycle stage.
+      tags:
+        - Governance
+        - Process
+        - Core
+
+    - term: Traffic Management
+      definition: >-
+        A category of SAP API Management policies controlling request rates,
+        quotas, spike arrests, and concurrent connection limits to protect
+        backend systems.
+      tags:
+        - Policy
+        - Security
+        - Operations
+
+    - term: SAP Business Accelerator Hub
+      definition: >-
+        SAP's public API marketplace (api.sap.com) where SAP and partner
+        APIs are published for discovery and evaluation. The central catalog
+        for SAP API packages including APIMgmt.
+      tags:
+        - Marketplace
+        - Discovery
+        - SAP

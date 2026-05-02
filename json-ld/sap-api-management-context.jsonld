@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "sap": "https://api-evangelist.github.io/sap-api-management/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "APIProxy": {
+      "@id": "sap:APIProxy",
+      "@type": "schema:WebAPI",
+      "schema:description": "A managed API proxy in SAP API Management that fronts a backend service"
+    },
+
+    "APIProduct": {
+      "@id": "sap:APIProduct",
+      "@type": "schema:Product",
+      "schema:description": "A bundle of API proxies published for developer consumption"
+    },
+
+    "APIProvider": {
+      "@id": "sap:APIProvider",
+      "@type": "schema:Service",
+      "schema:description": "A backend system registered as a data/service source in SAP API Management"
+    },
+
+    "Application": {
+      "@id": "sap:DeveloperApplication",
+      "@type": "schema:SoftwareApplication",
+      "schema:description": "A developer-registered application consuming SAP API products"
+    },
+
+    "KeyValueMap": {
+      "@id": "sap:KeyValueMap",
+      "@type": "schema:PropertyValue",
+      "schema:description": "A runtime configuration store for SAP API Management policies"
+    },
+
+    "Policy": {
+      "@id": "sap:Policy",
+      "@type": "schema:Action",
+      "schema:description": "A policy applied to an API proxy for security, transformation, or throttling"
+    },
+
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+
+    "title": {
+      "@id": "schema:headline",
+      "@type": "xsd:string"
+    },
+
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+
+    "basepath": {
+      "@id": "sap:basepath",
+      "@type": "xsd:string"
+    },
+
+    "status": {
+      "@id": "schema:status",
+      "@type": "xsd:string"
+    },
+
+    "version": {
+      "@id": "schema:version",
+      "@type": "xsd:string"
+    }
+  }
+}

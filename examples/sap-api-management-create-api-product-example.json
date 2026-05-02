@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://your-tenant.cfapps.sap.hana.ondemand.com/apiportal/api/1.0/Management.svc/APIProducts",
+    "headers": {
+      "Authorization": "Bearer {oauth_access_token}",
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    "body": {
+      "name": "SupplyChainAPIs",
+      "title": "Supply Chain API Bundle",
+      "description": "Bundled APIs for supply chain integration including order management and inventory",
+      "scope": "Public"
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "d": {
+        "name": "SupplyChainAPIs",
+        "title": "Supply Chain API Bundle",
+        "description": "Bundled APIs for supply chain integration including order management and inventory",
+        "scope": "Public",
+        "status": "Draft",
+        "createdAt": "2026-05-02T10:30:00Z",
+        "modifiedAt": "2026-05-02T10:30:00Z"
+      }
+    }
+  }
+}

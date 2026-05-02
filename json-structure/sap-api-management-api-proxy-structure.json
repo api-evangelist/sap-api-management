@@ -1,0 +1,70 @@
+{
+  "title": "SAP API Management API Proxy Structure",
+  "description": "Structure documentation for SAP API Management API Proxy entities",
+  "type": "object",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Unique proxy name used as identifier in URLs and references",
+      "required": true,
+      "example": "OrderManagement"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Human-readable display title shown in the developer portal",
+      "required": false,
+      "example": "Order Management API"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Detailed description of the proxy's backend service and purpose",
+      "required": false,
+      "example": "Manages purchase orders in SAP S/4HANA"
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "description": "Semantic or custom version identifier",
+      "required": false,
+      "example": "v1"
+    },
+    {
+      "name": "basepath",
+      "type": "string",
+      "description": "URL base path for routing to this proxy on the API gateway",
+      "required": true,
+      "example": "/orders"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "description": "Deployment state: Active (deployed), Inactive (undeployed), Draft (unpublished)",
+      "required": false,
+      "example": "Active"
+    },
+    {
+      "name": "apiProviderId",
+      "type": "string",
+      "description": "Reference to the registered API provider (backend system)",
+      "required": false,
+      "example": "S4HANA-Provider"
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "ISO 8601 creation timestamp",
+      "required": false,
+      "example": "2026-01-15T10:00:00Z"
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "ISO 8601 last modification timestamp",
+      "required": false,
+      "example": "2026-05-01T14:30:00Z"
+    }
+  ]
+}

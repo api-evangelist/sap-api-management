@@ -1,0 +1,75 @@
+rules:
+  sap-apimgmt-oauth2-required:
+    description: SAP API Management endpoints require OAuth 2.0 authentication
+    message: "Endpoint {{path}} must use OAuth2 security scheme"
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            security:
+              type: array
+
+  sap-apimgmt-https-only:
+    description: All SAP API Management servers must use HTTPS
+    message: "Server URL must use HTTPS"
+    severity: error
+    given: "$.servers[*]"
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  sap-apimgmt-operation-id-required:
+    description: All operations must have operationId for automation tooling
+    message: "Operation at {{path}} must have an operationId"
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: operationId
+      function: truthy
+
+  sap-apimgmt-tags-required:
+    description: All operations must have tags for grouping in developer portal
+    message: "Operation {{operationId}} must have at least one tag"
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: tags
+      function: truthy
+
+  sap-apimgmt-odata-response-format:
+    description: OData responses should use the d.results envelope format
+    message: "OData response at {{path}} should use d.results envelope"
+    severity: info
+    given: "$.paths[*].get.responses.200.content.application/json.schema"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            d:
+              type: object
+
+  sap-apimgmt-description-required:
+    description: All operations must have descriptions
+    message: "Operation {{operationId}} must have a description"
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: description
+      function: truthy
+
+  sap-apimgmt-204-on-delete:
+    description: DELETE operations should return 204 No Content
+    message: "DELETE operation at {{path}} should return 204"
+    severity: warn
+    given: "$.paths[*].delete.responses"
+    then:
+      field: "204"
+      function: truthy

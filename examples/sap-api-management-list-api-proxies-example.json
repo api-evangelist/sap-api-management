@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://your-tenant.cfapps.sap.hana.ondemand.com/apiportal/api/1.0/Management.svc/APIProxies?$top=10&$orderby=name",
+    "headers": {
+      "Authorization": "Bearer {oauth_access_token}",
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "d": {
+        "results": [
+          {
+            "name": "OrderManagement",
+            "title": "Order Management API",
+            "description": "Proxies the SAP S/4HANA Order Management OData service",
+            "version": "v1",
+            "basepath": "/orders",
+            "status": "Active",
+            "apiProviderId": "S4HANA-Provider",
+            "createdAt": "2026-01-15T10:00:00Z",
+            "modifiedAt": "2026-04-01T08:30:00Z"
+          },
+          {
+            "name": "CustomerMaster",
+            "title": "Customer Master API",
+            "description": "Manages customer master data via SAP CRM",
+            "version": "v2",
+            "basepath": "/customers",
+            "status": "Active",
+            "apiProviderId": "CRM-Provider",
+            "createdAt": "2026-02-10T09:00:00Z",
+            "modifiedAt": "2026-03-20T11:00:00Z"
+          }
+        ]
+      }
+    }
+  }
+}

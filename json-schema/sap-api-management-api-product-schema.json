@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/sap-api-management/json-schema/api-product.json",
+  "title": "SAP API Management API Product",
+  "description": "Schema for an SAP API Management API Product, which bundles one or more API proxies for controlled access and consumption through the developer portal.",
+  "type": "object",
+  "required": ["name", "title"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Unique identifier for the API product",
+      "examples": ["SupplyChainAPIs", "finance-bundle"]
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable display title in the developer portal"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the API product's scope and target audience"
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["Public", "Private", "Internal"],
+      "description": "Visibility of the product in the developer portal"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Published", "Draft"],
+      "description": "Publication status of the API product"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "modifiedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

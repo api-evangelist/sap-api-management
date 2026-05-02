@@ -47,6 +47,8 @@ apis:
       developers, policies, and key-value maps within the SAP API Management
       platform. It is used by administrators and developers to automate the
       full API lifecycle including creation, versioning, and publishing of APIs.
+      The API uses OData conventions with base URL:
+      https://{tenant-url}/apiportal/api/1.0/Management.svc.
     humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/build-apis
     tags:
       - API Lifecycle
@@ -60,6 +62,9 @@ apis:
         url: https://api.sap.com/api/APIMgmt/overview
       - type: GitHubRepository
         url: https://github.com/SAP/apibusinesshub-api-recipes
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/sap-api-management/refs/heads/main/openapi/sap-api-management-portal-openapi.yml
   - aid: sap-api-management:sap-api-business-hub-enterprise
     name: SAP API Business Hub Enterprise API
     description: >-
