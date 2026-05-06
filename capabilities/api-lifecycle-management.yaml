@@ -1,251 +1,435 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "SAP API Lifecycle Management"
-  description: >-
-    Unified capability for managing the full API lifecycle in SAP API Management.
-    Combines the API Portal management API to support end-to-end workflows for
-    API platform engineers, integration architects, and developer experience teams.
-    Enables programmatic API governance, proxy management, product publishing,
-    and developer portal administration.
+  label: SAP API Lifecycle Management
+  description: Unified capability for managing the full API lifecycle in SAP API Management. Combines the API Portal management
+    API to support end-to-end workflows for API platform engineers, integration architects, and developer experience teams.
+    Enables programmatic API governance, proxy management, product publishing, and developer portal administration.
   tags:
-    - API Lifecycle
-    - API Management
-    - Developer Portal
-    - SAP BTP
-    - Governance
-  created: "2026-05-02"
-  modified: "2026-05-02"
-
+  - API Lifecycle
+  - API Management
+  - Developer Portal
+  - SAP BTP
+  - Governance
+  created: '2026-05-02'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      SAP_APIMGMT_CLIENT_ID: SAP_APIMGMT_CLIENT_ID
-      SAP_APIMGMT_CLIENT_SECRET: SAP_APIMGMT_CLIENT_SECRET
-      SAP_APIMGMT_TENANT_URL: SAP_APIMGMT_TENANT_URL
-
+- namespace: env
+  keys:
+    SAP_APIMGMT_CLIENT_ID: SAP_APIMGMT_CLIENT_ID
+    SAP_APIMGMT_CLIENT_SECRET: SAP_APIMGMT_CLIENT_SECRET
+    SAP_APIMGMT_TENANT_URL: SAP_APIMGMT_TENANT_URL
 capability:
   consumes:
-    - import: api-portal
-      location: ./shared/api-portal.yaml
-
+  - type: http
+    namespace: api-portal
+    baseUri: https://{{SAP_APIMGMT_TENANT_URL}}/apiportal/api/1.0/Management.svc
+    description: SAP API Management OData management service for CRUD operations on API entities
+    authentication:
+      type: bearer
+      token: '{{SAP_APIMGMT_ACCESS_TOKEN}}'
+    resources:
+    - name: api-providers
+      path: /APIProviders
+      description: Backend system provider management
+      operations:
+      - name: list-api-providers
+        method: GET
+        description: List all registered API providers
+        inputParameters:
+        - name: $top
+          in: query
+          type: integer
+          required: false
+        - name: $filter
+          in: query
+          type: string
+          required: false
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-api-provider
+        method: POST
+        description: Register a new backend system as an API provider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            name: '{{tools.name}}'
+            host: '{{tools.host}}'
+            description: '{{tools.description}}'
+      - name: get-api-provider
+        method: GET
+        description: Get details of a specific API provider
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: delete-api-provider
+        method: DELETE
+        description: Delete a registered API provider
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-proxies
+      path: /APIProxies
+      description: API proxy lifecycle management
+      operations:
+      - name: list-api-proxies
+        method: GET
+        description: List all API proxies
+        inputParameters:
+        - name: $top
+          in: query
+          type: integer
+          required: false
+        - name: $filter
+          in: query
+          type: string
+          required: false
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-api-proxy
+        method: POST
+        description: Create a new API proxy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            name: '{{tools.name}}'
+            basepath: '{{tools.basepath}}'
+            title: '{{tools.title}}'
+            description: '{{tools.description}}'
+      - name: get-api-proxy
+        method: GET
+        description: Get details of a specific API proxy
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: delete-api-proxy
+        method: DELETE
+        description: Delete an API proxy
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-products
+      path: /APIProducts
+      description: API product catalog management
+      operations:
+      - name: list-api-products
+        method: GET
+        description: List all API products
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-api-product
+        method: POST
+        description: Create a new API product
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            name: '{{tools.name}}'
+            title: '{{tools.title}}'
+            description: '{{tools.description}}'
+            scope: '{{tools.scope}}'
+      - name: delete-api-product
+        method: DELETE
+        description: Delete an API product
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications
+      path: /Applications
+      description: Developer application management
+      operations:
+      - name: list-applications
+        method: GET
+        description: List all registered developer applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: key-value-maps
+      path: /KeyValueMaps
+      description: Runtime configuration key-value store management
+      operations:
+      - name: list-key-value-maps
+        method: GET
+        description: List all key-value maps
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-key-value-map
+        method: POST
+        description: Create a new key-value map
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            name: '{{tools.name}}'
+            encrypted: '{{tools.encrypted}}'
   exposes:
-    - type: rest
-      port: 8080
-      namespace: sap-api-lifecycle-api
-      description: "Unified REST API for SAP API Management lifecycle operations."
-      resources:
-        - path: /v1/providers
-          name: api-providers
-          description: "Backend API provider management"
-          operations:
-            - method: GET
-              name: list-api-providers
-              description: "List all registered API providers"
-              call: "api-portal.list-api-providers"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/proxies
-          name: api-proxies
-          description: "API proxy lifecycle operations"
-          operations:
-            - method: GET
-              name: list-api-proxies
-              description: "List all API proxies"
-              call: "api-portal.list-api-proxies"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: create-api-proxy
-              description: "Create a new API proxy"
-              call: "api-portal.create-api-proxy"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/proxies/{name}
-          name: api-proxy
-          description: "Single API proxy operations"
-          operations:
-            - method: GET
-              name: get-api-proxy
-              description: "Get API proxy details"
-              call: "api-portal.get-api-proxy"
-              with:
-                name: "rest.name"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: DELETE
-              name: delete-api-proxy
-              description: "Delete an API proxy"
-              call: "api-portal.delete-api-proxy"
-              with:
-                name: "rest.name"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/products
-          name: api-products
-          description: "API product catalog management"
-          operations:
-            - method: GET
-              name: list-api-products
-              description: "List all API products"
-              call: "api-portal.list-api-products"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: create-api-product
-              description: "Create a new API product"
-              call: "api-portal.create-api-product"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/applications
-          name: applications
-          description: "Developer application management"
-          operations:
-            - method: GET
-              name: list-applications
-              description: "List all developer applications"
-              call: "api-portal.list-applications"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/key-value-maps
-          name: key-value-maps
-          description: "Runtime configuration key-value maps"
-          operations:
-            - method: GET
-              name: list-key-value-maps
-              description: "List all key-value maps"
-              call: "api-portal.list-key-value-maps"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: create-key-value-map
-              description: "Create a new key-value map"
-              call: "api-portal.create-key-value-map"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9090
-      namespace: sap-api-lifecycle-mcp
-      transport: http
-      description: "MCP server for AI-assisted SAP API Management lifecycle operations."
-      tools:
-        - name: list-api-providers
-          description: "List all backend API providers registered in SAP API Management"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "api-portal.list-api-providers"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-api-proxies
-          description: "List all API proxies in SAP API Management"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "api-portal.list-api-proxies"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: get-api-proxy
-          description: "Get details for a specific SAP API Management proxy"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "api-portal.get-api-proxy"
-          with:
-            name: "tools.name"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: create-api-proxy
-          description: "Create a new API proxy in SAP API Management"
-          hints:
-            readOnly: false
-            destructive: false
-          call: "api-portal.create-api-proxy"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: delete-api-proxy
-          description: "Delete an API proxy from SAP API Management"
-          hints:
-            readOnly: false
-            destructive: true
-            idempotent: true
-          call: "api-portal.delete-api-proxy"
-          with:
-            name: "tools.name"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-api-products
-          description: "List all API products in the developer portal"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "api-portal.list-api-products"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: create-api-product
-          description: "Create a new API product bundle for the developer portal"
-          hints:
-            readOnly: false
-            destructive: false
-          call: "api-portal.create-api-product"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-applications
-          description: "List all developer applications consuming API products"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "api-portal.list-applications"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-key-value-maps
-          description: "List all key-value maps for policy configuration"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "api-portal.list-key-value-maps"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: create-key-value-map
-          description: "Create a new runtime key-value map for API policies"
-          hints:
-            readOnly: false
-            destructive: false
-          call: "api-portal.create-key-value-map"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8080
+    namespace: sap-api-lifecycle-api
+    description: Unified REST API for SAP API Management lifecycle operations.
+    resources:
+    - path: /v1/providers
+      name: api-providers
+      description: Backend API provider management
+      operations:
+      - method: GET
+        name: list-api-providers
+        description: List all registered API providers
+        call: api-portal.list-api-providers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/proxies
+      name: api-proxies
+      description: API proxy lifecycle operations
+      operations:
+      - method: GET
+        name: list-api-proxies
+        description: List all API proxies
+        call: api-portal.list-api-proxies
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-api-proxy
+        description: Create a new API proxy
+        call: api-portal.create-api-proxy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/proxies/{name}
+      name: api-proxy
+      description: Single API proxy operations
+      operations:
+      - method: GET
+        name: get-api-proxy
+        description: Get API proxy details
+        call: api-portal.get-api-proxy
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete-api-proxy
+        description: Delete an API proxy
+        call: api-portal.delete-api-proxy
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/products
+      name: api-products
+      description: API product catalog management
+      operations:
+      - method: GET
+        name: list-api-products
+        description: List all API products
+        call: api-portal.list-api-products
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-api-product
+        description: Create a new API product
+        call: api-portal.create-api-product
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications
+      name: applications
+      description: Developer application management
+      operations:
+      - method: GET
+        name: list-applications
+        description: List all developer applications
+        call: api-portal.list-applications
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/key-value-maps
+      name: key-value-maps
+      description: Runtime configuration key-value maps
+      operations:
+      - method: GET
+        name: list-key-value-maps
+        description: List all key-value maps
+        call: api-portal.list-key-value-maps
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-key-value-map
+        description: Create a new key-value map
+        call: api-portal.create-key-value-map
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: sap-api-lifecycle-mcp
+    transport: http
+    description: MCP server for AI-assisted SAP API Management lifecycle operations.
+    tools:
+    - name: list-api-providers
+      description: List all backend API providers registered in SAP API Management
+      hints:
+        readOnly: true
+        openWorld: false
+      call: api-portal.list-api-providers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-api-proxies
+      description: List all API proxies in SAP API Management
+      hints:
+        readOnly: true
+        openWorld: false
+      call: api-portal.list-api-proxies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-api-proxy
+      description: Get details for a specific SAP API Management proxy
+      hints:
+        readOnly: true
+        openWorld: false
+      call: api-portal.get-api-proxy
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-api-proxy
+      description: Create a new API proxy in SAP API Management
+      hints:
+        readOnly: false
+        destructive: false
+      call: api-portal.create-api-proxy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-api-proxy
+      description: Delete an API proxy from SAP API Management
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-portal.delete-api-proxy
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-api-products
+      description: List all API products in the developer portal
+      hints:
+        readOnly: true
+        openWorld: false
+      call: api-portal.list-api-products
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-api-product
+      description: Create a new API product bundle for the developer portal
+      hints:
+        readOnly: false
+        destructive: false
+      call: api-portal.create-api-product
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-applications
+      description: List all developer applications consuming API products
+      hints:
+        readOnly: true
+        openWorld: false
+      call: api-portal.list-applications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-key-value-maps
+      description: List all key-value maps for policy configuration
+      hints:
+        readOnly: true
+        openWorld: false
+      call: api-portal.list-key-value-maps
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-key-value-map
+      description: Create a new runtime key-value map for API policies
+      hints:
+        readOnly: false
+        destructive: false
+      call: api-portal.create-key-value-map
+      outputParameters:
+      - type: object
+        mapping: $.
