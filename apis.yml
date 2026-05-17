@@ -36,7 +36,7 @@ apis:
         url: https://help.sap.com/docs/sap-api-management
       - type: Reference
         url: https://api.sap.com/package/APIMgmt/overview
-      - type: Getting Started
+      - type: GettingStarted
         url: https://help.sap.com/docs/sap-api-management/sap-api-management/what-is-api-management
       - type: Authentication
         url: https://help.sap.com/docs/sap-api-management/sap-api-management/user-authentication
@@ -114,7 +114,7 @@ common:
     url: https://help.sap.com/docs/sap-api-management
   - type: Website
     url: https://www.sap.com/products/technology-platform/api-management.html
-  - type: Getting Started
+  - type: GettingStarted
     url: https://help.sap.com/docs/sap-api-management/sap-api-management/what-is-api-management
   - type: Authentication
     url: https://help.sap.com/docs/sap-api-management/sap-api-management/user-authentication
@@ -124,19 +124,19 @@ common:
     url: https://community.sap.com/topics/api-management
   - type: Support
     url: https://support.sap.com/en/product/support-by-product/73554900100700002381.html
-  - type: Status
+  - type: StatusPage
     url: https://www.sap.com/about/trust-center/cloud-service-status.html
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/SAP-samples
   - type: GitHubRepository
     url: https://github.com/SAP/apibusinesshub-api-recipes
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.sap.com/about/agreements/policies/cloud-platform.html
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.sap.com/about/legal/privacy.html
   - type: YouTube
     url: https://www.youtube.com/@SAPTechnology
-  - type: Stack Overflow
+  - type: StackOverflow
     url: https://stackoverflow.com/questions/tagged/sap-api-management
   - type: Vocabulary
     url: vocabulary/sap-api-management-vocabulary.yml
