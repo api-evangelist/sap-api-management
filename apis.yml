@@ -5,7 +5,7 @@ description: >-
   It provides a self-service developer portal (API Business Hub Enterprise), OpenAPI-based API design tools, policy
   management, and access to the SAP Business Accelerator Hub for discovering and consuming SAP and partner APIs.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - API Management
   - Developer Portal
