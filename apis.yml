@@ -100,6 +100,10 @@ apis:
       - type: Reference
         url: https://api.sap.com/api/APIMgmtAnalytics/overview
 common:
+  - type: VulnerabilityDisclosure
+    url: security/sap-api-management-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/sap-api-management-domain-security.yml
   - type: Authentication
     url: authentication/sap-api-management-authentication.yml
   - type: OAuthScopes
