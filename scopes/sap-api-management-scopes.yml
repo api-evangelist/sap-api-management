@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sap-api-management-portal-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/sap-api-management-portal-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://{tenantUrl}/oauth/token
+  description: OAuth 2.0 authentication using SAP BTP service key credentials
+scopes:
+- scope: apiportal.access
+  description: Full access to API Management portal
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/sap-api-management-portal-openapi.yml
