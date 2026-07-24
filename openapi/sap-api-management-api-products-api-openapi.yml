@@ -1,0 +1,167 @@
+openapi: 3.0.3
+info:
+  title: SAP API Management API Portal API Products API
+  description: 'The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.'
+  version: '1.0'
+  contact:
+    name: SAP API Management Support
+    url: https://help.sap.com/docs/sap-api-management
+  license:
+    name: SAP Terms
+    url: https://www.sap.com/about/agreements/policies/cloud-platform.html
+servers:
+- url: https://{tenantUrl}/apiportal/api/1.0/Management.svc
+  description: SAP API Management API Portal OData service
+  variables:
+    tenantUrl:
+      description: Your SAP BTP tenant-specific URL
+      default: your-tenant.cfapps.sap.hana.ondemand.com
+security:
+- OAuth2: []
+tags:
+- name: API Products
+  description: Collections of APIs bundled as products for developer consumption
+paths:
+  /APIProducts:
+    get:
+      operationId: listApiProducts
+      summary: List API Products
+      description: Retrieve all API products available in the developer portal. Products bundle API proxies for controlled access and monetization.
+      tags:
+      - API Products
+      parameters:
+      - name: $filter
+        in: query
+        schema:
+          type: string
+      - name: $top
+        in: query
+        schema:
+          type: integer
+      - name: $skip
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: List of API products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIProductsResponse'
+    post:
+      operationId: createApiProduct
+      summary: Create API Product
+      description: Create a new API product bundling one or more API proxies.
+      tags:
+      - API Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIProductInput'
+      responses:
+        '201':
+          description: API product created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIProduct'
+  /APIProducts('{name}'):
+    get:
+      operationId: getApiProduct
+      summary: Get API Product
+      description: Retrieve a specific API product by name.
+      tags:
+      - API Products
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: API product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIProduct'
+    delete:
+      operationId: deleteApiProduct
+      summary: Delete API Product
+      description: Delete an API product from the platform.
+      tags:
+      - API Products
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: API product deleted
+components:
+  schemas:
+    APIProductInput:
+      type: object
+      required:
+      - name
+      - title
+      properties:
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        scope:
+          type: string
+    APIProduct:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique API product name
+        title:
+          type: string
+        description:
+          type: string
+        scope:
+          type: string
+          enum:
+          - Public
+          - Private
+          - Internal
+        status:
+          type: string
+          enum:
+          - Published
+          - Draft
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+    APIProductsResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIProduct'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication using SAP BTP service key credentials
+      flows:
+        clientCredentials:
+          tokenUrl: https://{tenantUrl}/oauth/token
+          scopes:
+            apiportal.access: Full access to API Management portal

@@ -1,0 +1,99 @@
+openapi: 3.0.3
+info:
+  title: SAP API Management API Portal API Products Key Value Maps API
+  description: 'The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.'
+  version: '1.0'
+  contact:
+    name: SAP API Management Support
+    url: https://help.sap.com/docs/sap-api-management
+  license:
+    name: SAP Terms
+    url: https://www.sap.com/about/agreements/policies/cloud-platform.html
+servers:
+- url: https://{tenantUrl}/apiportal/api/1.0/Management.svc
+  description: SAP API Management API Portal OData service
+  variables:
+    tenantUrl:
+      description: Your SAP BTP tenant-specific URL
+      default: your-tenant.cfapps.sap.hana.ondemand.com
+security:
+- OAuth2: []
+tags:
+- name: Key Value Maps
+  description: Configuration key-value stores for policy runtime use
+paths:
+  /KeyValueMaps:
+    get:
+      operationId: listKeyValueMaps
+      summary: List Key Value Maps
+      description: Retrieve all key-value maps available for policy use at runtime.
+      tags:
+      - Key Value Maps
+      responses:
+        '200':
+          description: List of key-value maps
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyValueMapsResponse'
+    post:
+      operationId: createKeyValueMap
+      summary: Create Key Value Map
+      description: Create a new key-value map for storing configuration values.
+      tags:
+      - Key Value Maps
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyValueMapInput'
+      responses:
+        '201':
+          description: Key value map created
+components:
+  schemas:
+    KeyValueMapsResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/KeyValueMap'
+    KeyValueMap:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        encrypted:
+          type: boolean
+        scope:
+          type: string
+          enum:
+          - Environment
+          - API
+    KeyValueMapInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        encrypted:
+          type: boolean
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication using SAP BTP service key credentials
+      flows:
+        clientCredentials:
+          tokenUrl: https://{tenantUrl}/oauth/token
+          scopes:
+            apiportal.access: Full access to API Management portal

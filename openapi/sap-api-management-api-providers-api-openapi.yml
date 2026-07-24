@@ -1,0 +1,206 @@
+openapi: 3.0.3
+info:
+  title: SAP API Management API Portal API Products API Providers API
+  description: 'The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.'
+  version: '1.0'
+  contact:
+    name: SAP API Management Support
+    url: https://help.sap.com/docs/sap-api-management
+  license:
+    name: SAP Terms
+    url: https://www.sap.com/about/agreements/policies/cloud-platform.html
+servers:
+- url: https://{tenantUrl}/apiportal/api/1.0/Management.svc
+  description: SAP API Management API Portal OData service
+  variables:
+    tenantUrl:
+      description: Your SAP BTP tenant-specific URL
+      default: your-tenant.cfapps.sap.hana.ondemand.com
+security:
+- OAuth2: []
+tags:
+- name: API Providers
+  description: Backend systems that provide APIs for SAP API Management
+paths:
+  /APIProviders:
+    get:
+      operationId: listApiProviders
+      summary: List API Providers
+      description: Retrieve all API providers (backend systems) registered in the SAP API Management platform. Supports OData query options ($filter, $orderby, $top, $skip, $select).
+      tags:
+      - API Providers
+      parameters:
+      - name: $filter
+        in: query
+        schema:
+          type: string
+        description: OData filter expression
+      - name: $top
+        in: query
+        schema:
+          type: integer
+        description: Maximum number of records to return
+      - name: $skip
+        in: query
+        schema:
+          type: integer
+        description: Number of records to skip for pagination
+      - name: $select
+        in: query
+        schema:
+          type: string
+        description: Comma-separated list of properties to return
+      responses:
+        '200':
+          description: List of API providers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIProvidersResponse'
+    post:
+      operationId: createApiProvider
+      summary: Create API Provider
+      description: Register a new backend system as an API provider.
+      tags:
+      - API Providers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIProviderInput'
+      responses:
+        '201':
+          description: API provider created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIProvider'
+  /APIProviders('{name}'):
+    get:
+      operationId: getApiProvider
+      summary: Get API Provider
+      description: Retrieve a specific API provider by name.
+      tags:
+      - API Providers
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: API provider name
+      responses:
+        '200':
+          description: API provider details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIProvider'
+    put:
+      operationId: updateApiProvider
+      summary: Update API Provider
+      description: Update an existing API provider configuration.
+      tags:
+      - API Providers
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIProviderInput'
+      responses:
+        '200':
+          description: API provider updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIProvider'
+    delete:
+      operationId: deleteApiProvider
+      summary: Delete API Provider
+      description: Delete a registered API provider.
+      tags:
+      - API Providers
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: API provider deleted
+components:
+  schemas:
+    APIProvider:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique API provider name
+        description:
+          type: string
+        host:
+          type: string
+          description: Backend host URL
+        port:
+          type: integer
+        path:
+          type: string
+        isOnPremise:
+          type: boolean
+          description: Whether the backend is on-premise
+        useSSL:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+    APIProvidersResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIProvider'
+    APIProviderInput:
+      type: object
+      required:
+      - name
+      - host
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        host:
+          type: string
+        port:
+          type: integer
+        path:
+          type: string
+        isOnPremise:
+          type: boolean
+        useSSL:
+          type: boolean
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication using SAP BTP service key credentials
+      flows:
+        clientCredentials:
+          tokenUrl: https://{tenantUrl}/oauth/token
+          scopes:
+            apiportal.access: Full access to API Management portal
