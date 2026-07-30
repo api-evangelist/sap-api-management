@@ -5,7 +5,20 @@ description: >-
   It provides a self-service developer portal (API Business Hub Enterprise), OpenAPI-based API design tools, policy
   management, and access to the SAP Business Accelerator Hub for discovering and consuming SAP and partner APIs.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sap-api-management.png
 tags:
   - API Management
   - Developer Portal
@@ -17,89 +30,158 @@ modified: '2026-05-19'
 x-profiled: 2026-05
 specificationVersion: '0.19'
 apis:
-  - aid: sap-api-management:sap-api-management
-    name: SAP API Management API
-    description: >-
-      The SAP API Management API provides programmatic access to manage APIs, API products, developer portal settings,
-      and access control through the SAP API Management platform on SAP Business Technology Platform.
-    humanURL: https://help.sap.com/docs/sap-api-management
-    tags:
-      - API Management
-      - Developer Portal
-      - SAP BTP
-    properties:
-      - type: Documentation
-        url: https://help.sap.com/docs/sap-api-management
-      - type: Reference
-        url: https://api.sap.com/package/APIMgmt/overview
-      - type: GettingStarted
-        url: https://help.sap.com/docs/sap-api-management/sap-api-management/what-is-api-management
-      - type: Authentication
-        url: https://help.sap.com/docs/sap-api-management/sap-api-management/user-authentication
-  - aid: sap-api-management:sap-api-management-api-portal
-    name: SAP API Management API Portal API
-    description: >-
-      The SAP API Management API Portal API provides RESTful endpoints for programmatically managing API proxies, API
-      products, applications, developers, policies, and key-value maps within the SAP API Management platform. It is
-      used by administrators and developers to automate the full API lifecycle including creation, versioning, and
-      publishing of APIs. The API uses OData conventions with base URL:
-      https://{tenant-url}/apiportal/api/1.0/Management.svc.
-    humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/build-apis
-    tags:
-      - API Lifecycle
-      - API Portal
-      - API Proxy
-      - REST
-    properties:
-      - type: Documentation
-        url: https://help.sap.com/docs/sap-api-management/sap-api-management/build-apis
-      - type: Reference
-        url: https://api.sap.com/api/APIMgmt/overview
-      - type: GitHubRepository
-        url: https://github.com/SAP/apibusinesshub-api-recipes
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/sap-api-management/refs/heads/main/openapi/sap-api-management-portal-openapi.yml
-      - type: JSONSchema
-        url: json-schema/sap-api-management-api-proxy-schema.json
-      - type: JSONSchema
-        url: json-schema/sap-api-management-api-product-schema.json
-  - aid: sap-api-management:sap-api-business-hub-enterprise
-    name: SAP API Business Hub Enterprise API
-    description: >-
-      The SAP API Business Hub Enterprise (also called API Management Developer Portal) API enables programmatic
-      management of the self-service developer portal. It supports managing API catalog content, developer
-      registrations, application subscriptions, and portal customizations for consumer-facing API discovery and
-      consumption.
-    humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/consume-apis
-    tags:
-      - API Catalog
-      - Developer Portal
-      - SAP BTP
-      - Self Service
-    properties:
-      - type: Documentation
-        url: https://help.sap.com/docs/sap-api-management/sap-api-management/consume-apis
-      - type: Reference
-        url: https://api.sap.com/api/APIMgmtDevPortal/overview
-  - aid: sap-api-management:sap-api-management-analytics
-    name: SAP API Management Analytics API
-    description: >-
-      The SAP API Management Analytics API provides access to API usage metrics, performance statistics, error rates,
-      and traffic analytics for APIs managed on the SAP API Management platform. It supports building custom dashboards
-      and monitoring integrations using aggregated and raw usage data.
-    humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/analyze-apis
-    tags:
-      - Analytics
-      - Metrics
-      - Monitoring
-      - Reporting
-    properties:
-      - type: Documentation
-        url: https://help.sap.com/docs/sap-api-management/sap-api-management/analyze-apis
-      - type: Reference
-        url: https://api.sap.com/api/APIMgmtAnalytics/overview
+- aid: sap-api-management:sap-api-management
+  name: SAP API Management API
+  description: >-
+    The SAP API Management API provides programmatic access to manage APIs, API products, developer portal
+    settings, and access control through the SAP API Management platform on SAP Business Technology Platform.
+  humanURL: https://help.sap.com/docs/sap-api-management
+  tags:
+  - API Management
+  - Developer Portal
+  - SAP BTP
+  properties:
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-api-management
+  - type: Reference
+    url: https://api.sap.com/package/APIMgmt/overview
+  - type: GettingStarted
+    url: https://help.sap.com/docs/sap-api-management/sap-api-management/what-is-api-management
+  - type: Authentication
+    url: https://help.sap.com/docs/sap-api-management/sap-api-management/user-authentication
+- aid: sap-api-management:sap-api-business-hub-enterprise
+  name: SAP API Business Hub Enterprise API
+  description: >-
+    The SAP API Business Hub Enterprise (also called API Management Developer Portal) API enables programmatic
+    management of the self-service developer portal. It supports managing API catalog content, developer
+    registrations, application subscriptions, and portal customizations for consumer-facing API discovery
+    and consumption.
+  humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/consume-apis
+  tags:
+  - API Catalog
+  - Developer Portal
+  - SAP BTP
+  - Self Service
+  properties:
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-api-management/sap-api-management/consume-apis
+  - type: Reference
+    url: https://api.sap.com/api/APIMgmtDevPortal/overview
+- aid: sap-api-management:sap-api-management-analytics
+  name: SAP API Management Analytics API
+  description: >-
+    The SAP API Management Analytics API provides access to API usage metrics, performance statistics,
+    error rates, and traffic analytics for APIs managed on the SAP API Management platform. It supports
+    building custom dashboards and monitoring integrations using aggregated and raw usage data.
+  humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/analyze-apis
+  tags:
+  - Analytics
+  - Metrics
+  - Monitoring
+  - Reporting
+  properties:
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-api-management/sap-api-management/analyze-apis
+  - type: Reference
+    url: https://api.sap.com/api/APIMgmtAnalytics/overview
+- aid: sap-api-management:sap-api-management-api-products-api
+  name: SAP API Management API Products API
+  description: Collections of APIs bundled as products for developer consumption
+  humanURL: https://help.sap.com/docs/sap-api-management
+  tags:
+  - API Products
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-api-management-api-products-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-api-management/sap-api-management/build-apis
+  - type: Reference
+    url: https://api.sap.com/api/APIMgmt/overview
+  - type: GitHubRepository
+    url: https://github.com/SAP/apibusinesshub-api-recipes
+  - type: JSONSchema
+    url: json-schema/sap-api-management-api-proxy-schema.json
+  - type: JSONSchema
+    url: json-schema/sap-api-management-api-product-schema.json
+- aid: sap-api-management:sap-api-management-api-providers-api
+  name: SAP API Management API Providers API
+  description: Backend systems that provide APIs for SAP API Management
+  humanURL: https://help.sap.com/docs/sap-api-management
+  tags:
+  - API Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-api-management-api-providers-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-api-management/sap-api-management/build-apis
+  - type: Reference
+    url: https://api.sap.com/api/APIMgmt/overview
+  - type: GitHubRepository
+    url: https://github.com/SAP/apibusinesshub-api-recipes
+  - type: JSONSchema
+    url: json-schema/sap-api-management-api-proxy-schema.json
+  - type: JSONSchema
+    url: json-schema/sap-api-management-api-product-schema.json
+- aid: sap-api-management:sap-api-management-api-proxies-api
+  name: SAP API Management API Proxies API
+  description: Managed API proxies fronting backend services
+  humanURL: https://help.sap.com/docs/sap-api-management
+  tags:
+  - API Proxies
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-api-management-api-proxies-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-api-management/sap-api-management/build-apis
+  - type: Reference
+    url: https://api.sap.com/api/APIMgmt/overview
+  - type: GitHubRepository
+    url: https://github.com/SAP/apibusinesshub-api-recipes
+  - type: JSONSchema
+    url: json-schema/sap-api-management-api-proxy-schema.json
+  - type: JSONSchema
+    url: json-schema/sap-api-management-api-product-schema.json
+- aid: sap-api-management:sap-api-management-applications-api
+  name: SAP API Management Applications API
+  description: Developer applications consuming API products
+  humanURL: https://help.sap.com/docs/sap-api-management
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-api-management-applications-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-api-management/sap-api-management/build-apis
+  - type: Reference
+    url: https://api.sap.com/api/APIMgmt/overview
+  - type: GitHubRepository
+    url: https://github.com/SAP/apibusinesshub-api-recipes
+  - type: JSONSchema
+    url: json-schema/sap-api-management-api-proxy-schema.json
+  - type: JSONSchema
+    url: json-schema/sap-api-management-api-product-schema.json
+- aid: sap-api-management:sap-api-management-key-value-maps-api
+  name: SAP API Management Key Value Maps API
+  description: Configuration key-value stores for policy runtime use
+  humanURL: https://help.sap.com/docs/sap-api-management
+  tags:
+  - Key Value Maps
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-api-management-key-value-maps-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-api-management/sap-api-management/build-apis
+  - type: Reference
+    url: https://api.sap.com/api/APIMgmt/overview
+  - type: GitHubRepository
+    url: https://github.com/SAP/apibusinesshub-api-recipes
+  - type: JSONSchema
+    url: json-schema/sap-api-management-api-proxy-schema.json
+  - type: JSONSchema
+    url: json-schema/sap-api-management-api-product-schema.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/sap-api-management/overview
   - type: AgenticAccess
     url: agentic-access/sap-api-management-agentic-access.yml
   - type: VulnerabilityDisclosure
