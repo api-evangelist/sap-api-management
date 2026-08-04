@@ -2,10 +2,6 @@
   "repo": "sap-api-management",
   "feeds": [
     {
-      "source": "https://community.sap.com/khhcw49343/rss/Community?interaction.style=forum",
-      "error": "HTTPError"
-    },
-    {
       "source": "https://help.sap.com/docs/sap-api-management/sap-api-management/user-authentication",
       "feed_url": "https://help.sap.com/docs/sap-api-management/sap-api-management/user-authentication",
       "title": "",
@@ -14,5 +10,5 @@
     }
   ],
   "post_count": 95,
-  "fetched": "2026-07-11T11:50:51Z"
+  "fetched": "2026-08-01T15:49:00Z"
 }

@@ -1,0 +1,400 @@
+{
+  "info": {
+    "_postman_id": "d9dcee09-1f8a-47e3-b7aa-91d1f42710b8",
+    "name": "SAP API Management API Portal API Products API",
+    "description": "The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.\n\nContact Support:\n Name: SAP API Management Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:55.000Z",
+    "updatedAt": "2026-07-28T02:50:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d9dcee09-1f8a-47e3-b7aa-91d1f42710b8"
+  },
+  "item": [
+    {
+      "name": "APIProducts",
+      "item": [
+        {
+          "name": "List API Products",
+          "id": "639d01ab-925c-4ae1-bc1f-c4c6bcb9ff4a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/APIProducts?$filter=<string>&$top=<integer>&$skip=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProducts"
+              ],
+              "query": [
+                {
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "$skip",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieve all API products available in the developer portal. Products bundle API proxies for controlled access and monetization."
+          },
+          "response": [
+            {
+              "id": "d710402f-b895-4658-89c4-fe8004d396b7",
+              "name": "List of API products",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/APIProducts?$filter=<string>&$top=<integer>&$skip=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProducts"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"scope\": \"Internal\",\n        \"status\": \"Published\",\n        \"createdAt\": \"<dateTime>\",\n        \"modifiedAt\": \"<dateTime>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"scope\": \"Internal\",\n        \"status\": \"Published\",\n        \"createdAt\": \"<dateTime>\",\n        \"modifiedAt\": \"<dateTime>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:50:55.000Z",
+              "updatedAt": "2026-07-28T02:50:55.000Z",
+              "uid": "35240-d710402f-b895-4658-89c4-fe8004d396b7"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:55.000Z",
+          "updatedAt": "2026-07-28T02:50:55.000Z",
+          "uid": "35240-639d01ab-925c-4ae1-bc1f-c4c6bcb9ff4a"
+        },
+        {
+          "name": "Create API Product",
+          "id": "a79d3d60-6647-4dbd-95c9-2aae322bcc62",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/APIProducts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProducts"
+              ]
+            },
+            "description": "Create a new API product bundling one or more API proxies."
+          },
+          "response": [
+            {
+              "id": "80700610-3167-402d-95be-f398bd54cea6",
+              "name": "API product created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/APIProducts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProducts"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"scope\": \"Public\",\n  \"status\": \"Published\",\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:50:55.000Z",
+              "updatedAt": "2026-07-28T02:50:55.000Z",
+              "uid": "35240-80700610-3167-402d-95be-f398bd54cea6"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:55.000Z",
+          "updatedAt": "2026-07-28T02:50:55.000Z",
+          "uid": "35240-a79d3d60-6647-4dbd-95c9-2aae322bcc62"
+        }
+      ],
+      "id": "e1ed1214-40bc-4ca1-9896-a5bd1cefb8c5",
+      "createdAt": "2026-07-28T02:50:55.000Z",
+      "updatedAt": "2026-07-28T02:50:55.000Z",
+      "uid": "35240-e1ed1214-40bc-4ca1-9896-a5bd1cefb8c5"
+    },
+    {
+      "name": "APIProducts('{name}')",
+      "item": [
+        {
+          "name": "Get API Product",
+          "id": "4b0df704-b535-4e80-b033-87fe484cda94",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/APIProducts('{{name}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProducts('{{name}}')"
+              ]
+            },
+            "description": "Retrieve a specific API product by name."
+          },
+          "response": [
+            {
+              "id": "e64486c2-03e5-455c-8e8f-066f9eb22fc3",
+              "name": "API product details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/APIProducts('{{name}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProducts('{{name}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"scope\": \"Public\",\n  \"status\": \"Published\",\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:50:55.000Z",
+              "updatedAt": "2026-07-28T02:50:55.000Z",
+              "uid": "35240-e64486c2-03e5-455c-8e8f-066f9eb22fc3"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:55.000Z",
+          "updatedAt": "2026-07-28T02:50:55.000Z",
+          "uid": "35240-4b0df704-b535-4e80-b033-87fe484cda94"
+        },
+        {
+          "name": "Delete API Product",
+          "id": "83b318f6-20dc-4318-99d3-79e9bae1ef8e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/APIProducts('{{name}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProducts('{{name}}')"
+              ]
+            },
+            "description": "Delete an API product from the platform."
+          },
+          "response": [
+            {
+              "id": "68892b02-97c3-4a2e-b263-7c9eb3b4d837",
+              "name": "API product deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/APIProducts('{{name}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProducts('{{name}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:50:55.000Z",
+              "updatedAt": "2026-07-28T02:50:55.000Z",
+              "uid": "35240-68892b02-97c3-4a2e-b263-7c9eb3b4d837"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:55.000Z",
+          "updatedAt": "2026-07-28T02:50:55.000Z",
+          "uid": "35240-83b318f6-20dc-4318-99d3-79e9bae1ef8e"
+        }
+      ],
+      "id": "a713b6f2-01f0-4e97-96d0-e860da3b080c",
+      "createdAt": "2026-07-28T02:50:55.000Z",
+      "updatedAt": "2026-07-28T02:50:55.000Z",
+      "uid": "35240-a713b6f2-01f0-4e97-96d0-e860da3b080c"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "apiportal.access",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{tenantUrl}/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenantUrl",
+      "value": "your-tenant.cfapps.sap.hana.ondemand.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenantUrl}}/apiportal/api/1.0/Management.svc"
+    },
+    {
+      "key": "name",
+      "value": "<string>"
+    }
+  ]
+}

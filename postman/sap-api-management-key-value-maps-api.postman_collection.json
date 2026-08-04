@@ -1,0 +1,214 @@
+{
+  "info": {
+    "_postman_id": "795499fd-140c-4671-9efa-4e2c35569d52",
+    "name": "SAP API Management API Portal API Products Key Value Maps API",
+    "description": "The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.\n\nContact Support:\n Name: SAP API Management Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:58.000Z",
+    "updatedAt": "2026-07-28T02:50:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-795499fd-140c-4671-9efa-4e2c35569d52"
+  },
+  "item": [
+    {
+      "name": "KeyValueMaps",
+      "item": [
+        {
+          "name": "List Key Value Maps",
+          "id": "d82a1fc9-5c06-48d8-88a4-226cb00227b5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/KeyValueMaps",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "KeyValueMaps"
+              ]
+            },
+            "description": "Retrieve all key-value maps available for policy use at runtime."
+          },
+          "response": [
+            {
+              "id": "71ceead4-0063-4c26-93bc-3f4c4ad4da68",
+              "name": "List of key-value maps",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/KeyValueMaps",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "KeyValueMaps"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"encrypted\": \"<boolean>\",\n        \"scope\": \"API\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"encrypted\": \"<boolean>\",\n        \"scope\": \"Environment\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:50:59.000Z",
+              "updatedAt": "2026-07-28T02:50:59.000Z",
+              "uid": "35240-71ceead4-0063-4c26-93bc-3f4c4ad4da68"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:59.000Z",
+          "updatedAt": "2026-07-28T02:50:59.000Z",
+          "uid": "35240-d82a1fc9-5c06-48d8-88a4-226cb00227b5"
+        },
+        {
+          "name": "Create Key Value Map",
+          "id": "f92466be-3a6b-4acc-849a-08cb6aa48246",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"encrypted\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/KeyValueMaps",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "KeyValueMaps"
+              ]
+            },
+            "description": "Create a new key-value map for storing configuration values."
+          },
+          "response": [
+            {
+              "id": "e3aebe5e-c621-4d0d-9c77-d20509f6d762",
+              "name": "Key value map created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"encrypted\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/KeyValueMaps",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "KeyValueMaps"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:50:59.000Z",
+              "updatedAt": "2026-07-28T02:50:59.000Z",
+              "uid": "35240-e3aebe5e-c621-4d0d-9c77-d20509f6d762"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:59.000Z",
+          "updatedAt": "2026-07-28T02:50:59.000Z",
+          "uid": "35240-f92466be-3a6b-4acc-849a-08cb6aa48246"
+        }
+      ],
+      "id": "3ff429e3-b130-432a-a37e-96af1d9b6377",
+      "createdAt": "2026-07-28T02:50:59.000Z",
+      "updatedAt": "2026-07-28T02:50:59.000Z",
+      "uid": "35240-3ff429e3-b130-432a-a37e-96af1d9b6377"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "apiportal.access",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{tenantUrl}/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenantUrl",
+      "value": "your-tenant.cfapps.sap.hana.ondemand.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenantUrl}}/apiportal/api/1.0/Management.svc"
+    }
+  ]
+}

@@ -1,0 +1,517 @@
+{
+  "info": {
+    "_postman_id": "20da25b9-e870-434a-b49f-eb7838be386d",
+    "name": "SAP API Management API Portal API Products API Providers API",
+    "description": "The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.\n\nContact Support:\n Name: SAP API Management Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:56.000Z",
+    "updatedAt": "2026-07-28T02:50:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-20da25b9-e870-434a-b49f-eb7838be386d"
+  },
+  "item": [
+    {
+      "name": "APIProviders",
+      "item": [
+        {
+          "name": "List API Providers",
+          "id": "d583e8f0-3fff-40b6-bdf5-70481e662c94",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/APIProviders?$filter=<string>&$top=<integer>&$skip=<integer>&$select=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProviders"
+              ],
+              "query": [
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Number of records to skip for pagination",
+                  "key": "$skip",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Comma-separated list of properties to return",
+                  "key": "$select",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve all API providers (backend systems) registered in the SAP API Management platform. Supports OData query options ($filter, $orderby, $top, $skip, $select)."
+          },
+          "response": [
+            {
+              "id": "ee00cb94-6849-47f5-b7da-902680a0b8ef",
+              "name": "List of API providers",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/APIProviders?$filter=<string>&$top=<integer>&$skip=<integer>&$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProviders"
+                  ],
+                  "query": [
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of records to skip for pagination",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to return",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"path\": \"<string>\",\n        \"isOnPremise\": \"<boolean>\",\n        \"useSSL\": \"<boolean>\",\n        \"createdAt\": \"<dateTime>\",\n        \"modifiedAt\": \"<dateTime>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"path\": \"<string>\",\n        \"isOnPremise\": \"<boolean>\",\n        \"useSSL\": \"<boolean>\",\n        \"createdAt\": \"<dateTime>\",\n        \"modifiedAt\": \"<dateTime>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:50:56.000Z",
+              "updatedAt": "2026-07-28T02:50:56.000Z",
+              "uid": "35240-ee00cb94-6849-47f5-b7da-902680a0b8ef"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:56.000Z",
+          "updatedAt": "2026-07-28T02:50:56.000Z",
+          "uid": "35240-d583e8f0-3fff-40b6-bdf5-70481e662c94"
+        },
+        {
+          "name": "Create API Provider",
+          "id": "f41ccb91-4435-4c85-abad-7c2588989bba",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"host\": \"<string>\",\n  \"description\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"path\": \"<string>\",\n  \"isOnPremise\": \"<boolean>\",\n  \"useSSL\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/APIProviders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProviders"
+              ]
+            },
+            "description": "Register a new backend system as an API provider."
+          },
+          "response": [
+            {
+              "id": "ecedf4b2-f661-44ae-9010-41e403787fb6",
+              "name": "API provider created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"host\": \"<string>\",\n  \"description\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"path\": \"<string>\",\n  \"isOnPremise\": \"<boolean>\",\n  \"useSSL\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/APIProviders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProviders"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"host\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"path\": \"<string>\",\n  \"isOnPremise\": \"<boolean>\",\n  \"useSSL\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:50:56.000Z",
+              "updatedAt": "2026-07-28T02:50:56.000Z",
+              "uid": "35240-ecedf4b2-f661-44ae-9010-41e403787fb6"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:56.000Z",
+          "updatedAt": "2026-07-28T02:50:56.000Z",
+          "uid": "35240-f41ccb91-4435-4c85-abad-7c2588989bba"
+        }
+      ],
+      "id": "a9b47060-69ea-4fa3-bc37-5c30128c71c9",
+      "createdAt": "2026-07-28T02:50:56.000Z",
+      "updatedAt": "2026-07-28T02:50:56.000Z",
+      "uid": "35240-a9b47060-69ea-4fa3-bc37-5c30128c71c9"
+    },
+    {
+      "name": "APIProviders('{name}')",
+      "item": [
+        {
+          "name": "Get API Provider",
+          "id": "ba818351-87da-4fa9-83f1-f82152e45774",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/APIProviders('{{name}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProviders('{{name}}')"
+              ]
+            },
+            "description": "Retrieve a specific API provider by name."
+          },
+          "response": [
+            {
+              "id": "37bd367f-a38d-441a-853c-f16d49570c11",
+              "name": "API provider details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/APIProviders('{{name}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProviders('{{name}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"host\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"path\": \"<string>\",\n  \"isOnPremise\": \"<boolean>\",\n  \"useSSL\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:50:56.000Z",
+              "updatedAt": "2026-07-28T02:50:56.000Z",
+              "uid": "35240-37bd367f-a38d-441a-853c-f16d49570c11"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:56.000Z",
+          "updatedAt": "2026-07-28T02:50:56.000Z",
+          "uid": "35240-ba818351-87da-4fa9-83f1-f82152e45774"
+        },
+        {
+          "name": "Update API Provider",
+          "id": "57bc39bc-931a-4425-9560-e4b05e12bf41",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"host\": \"<string>\",\n  \"description\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"path\": \"<string>\",\n  \"isOnPremise\": \"<boolean>\",\n  \"useSSL\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/APIProviders('{{name}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProviders('{{name}}')"
+              ]
+            },
+            "description": "Update an existing API provider configuration."
+          },
+          "response": [
+            {
+              "id": "ead61426-9d05-4ef8-9f52-d715cc5c3612",
+              "name": "API provider updated",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"host\": \"<string>\",\n  \"description\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"path\": \"<string>\",\n  \"isOnPremise\": \"<boolean>\",\n  \"useSSL\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/APIProviders('{{name}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProviders('{{name}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"host\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"path\": \"<string>\",\n  \"isOnPremise\": \"<boolean>\",\n  \"useSSL\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:50:56.000Z",
+              "updatedAt": "2026-07-28T02:50:56.000Z",
+              "uid": "35240-ead61426-9d05-4ef8-9f52-d715cc5c3612"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:56.000Z",
+          "updatedAt": "2026-07-28T02:50:56.000Z",
+          "uid": "35240-57bc39bc-931a-4425-9560-e4b05e12bf41"
+        },
+        {
+          "name": "Delete API Provider",
+          "id": "54954446-7177-4bd1-8103-72cf50d2c40d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/APIProviders('{{name}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProviders('{{name}}')"
+              ]
+            },
+            "description": "Delete a registered API provider."
+          },
+          "response": [
+            {
+              "id": "32e0c1f9-fb00-4428-8731-21cdfff54cc8",
+              "name": "API provider deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/APIProviders('{{name}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProviders('{{name}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:50:56.000Z",
+              "updatedAt": "2026-07-28T02:50:56.000Z",
+              "uid": "35240-32e0c1f9-fb00-4428-8731-21cdfff54cc8"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:56.000Z",
+          "updatedAt": "2026-07-28T02:50:56.000Z",
+          "uid": "35240-54954446-7177-4bd1-8103-72cf50d2c40d"
+        }
+      ],
+      "id": "65c4b512-1fe0-4a6b-8416-80fe8c8750d4",
+      "createdAt": "2026-07-28T02:50:56.000Z",
+      "updatedAt": "2026-07-28T02:50:56.000Z",
+      "uid": "35240-65c4b512-1fe0-4a6b-8416-80fe8c8750d4"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "apiportal.access",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{tenantUrl}/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenantUrl",
+      "value": "your-tenant.cfapps.sap.hana.ondemand.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenantUrl}}/apiportal/api/1.0/Management.svc"
+    },
+    {
+      "key": "name",
+      "value": "<string>"
+    }
+  ]
+}

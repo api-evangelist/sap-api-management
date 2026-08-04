@@ -1,0 +1,501 @@
+{
+  "info": {
+    "_postman_id": "cb04a4c2-13d3-48f6-81a0-ca01b26cfce5",
+    "name": "SAP API Management API Portal API Products API Proxies API",
+    "description": "The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.\n\nContact Support:\n Name: SAP API Management Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:57.000Z",
+    "updatedAt": "2026-07-28T02:50:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cb04a4c2-13d3-48f6-81a0-ca01b26cfce5"
+  },
+  "item": [
+    {
+      "name": "APIProxies",
+      "item": [
+        {
+          "name": "List API Proxies",
+          "id": "d5758db5-28bb-4cc1-a381-1f64ae58f6a3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/APIProxies?$filter=<string>&$top=<integer>&$skip=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProxies"
+              ],
+              "query": [
+                {
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "$skip",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieve all API proxies available in the SAP API Management platform. Supports OData query options for filtering and pagination."
+          },
+          "response": [
+            {
+              "id": "7f8bf950-8ad1-4d00-b213-3b796683c5b9",
+              "name": "List of API proxies",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/APIProxies?$filter=<string>&$top=<integer>&$skip=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProxies"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"version\": \"<string>\",\n        \"basepath\": \"<string>\",\n        \"status\": \"Active\",\n        \"apiProviderId\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"modifiedAt\": \"<dateTime>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"version\": \"<string>\",\n        \"basepath\": \"<string>\",\n        \"status\": \"Draft\",\n        \"apiProviderId\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"modifiedAt\": \"<dateTime>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:50:57.000Z",
+              "updatedAt": "2026-07-28T02:50:57.000Z",
+              "uid": "35240-7f8bf950-8ad1-4d00-b213-3b796683c5b9"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:57.000Z",
+          "updatedAt": "2026-07-28T02:50:57.000Z",
+          "uid": "35240-d5758db5-28bb-4cc1-a381-1f64ae58f6a3"
+        },
+        {
+          "name": "Create API Proxy",
+          "id": "893b78d2-4946-4aa1-abb9-1bf459c7012b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"apiProviderId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/APIProxies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProxies"
+              ]
+            },
+            "description": "Create a new API proxy in the SAP API Management platform."
+          },
+          "response": [
+            {
+              "id": "ea6f4bed-d5da-4f6c-8846-37e6740ff0a9",
+              "name": "API proxy created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"apiProviderId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/APIProxies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProxies"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"status\": \"Draft\",\n  \"apiProviderId\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:50:57.000Z",
+              "updatedAt": "2026-07-28T02:50:57.000Z",
+              "uid": "35240-ea6f4bed-d5da-4f6c-8846-37e6740ff0a9"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:57.000Z",
+          "updatedAt": "2026-07-28T02:50:57.000Z",
+          "uid": "35240-893b78d2-4946-4aa1-abb9-1bf459c7012b"
+        }
+      ],
+      "id": "14534d1e-29a9-4cf2-b546-fbbf86e9c327",
+      "createdAt": "2026-07-28T02:50:57.000Z",
+      "updatedAt": "2026-07-28T02:50:57.000Z",
+      "uid": "35240-14534d1e-29a9-4cf2-b546-fbbf86e9c327"
+    },
+    {
+      "name": "APIProxies('{name}')",
+      "item": [
+        {
+          "name": "Get API Proxy",
+          "id": "a5418670-40e5-4712-aec5-00d1332d8a3c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/APIProxies('{{name}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProxies('{{name}}')"
+              ]
+            },
+            "description": "Retrieve a specific API proxy by name."
+          },
+          "response": [
+            {
+              "id": "fbe655f1-e8b7-4ecf-aa27-fdeb0629098c",
+              "name": "API proxy details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/APIProxies('{{name}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProxies('{{name}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"status\": \"Draft\",\n  \"apiProviderId\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:50:57.000Z",
+              "updatedAt": "2026-07-28T02:50:57.000Z",
+              "uid": "35240-fbe655f1-e8b7-4ecf-aa27-fdeb0629098c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:57.000Z",
+          "updatedAt": "2026-07-28T02:50:57.000Z",
+          "uid": "35240-a5418670-40e5-4712-aec5-00d1332d8a3c"
+        },
+        {
+          "name": "Update API Proxy",
+          "id": "cb7cb7f0-cd79-46ad-91fd-e50885cfbb8f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"apiProviderId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/APIProxies('{{name}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProxies('{{name}}')"
+              ]
+            },
+            "description": "Update an existing API proxy configuration."
+          },
+          "response": [
+            {
+              "id": "7b4760a9-1836-4f62-bdb3-d13a13879053",
+              "name": "API proxy updated",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"apiProviderId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/APIProxies('{{name}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProxies('{{name}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"status\": \"Draft\",\n  \"apiProviderId\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:50:57.000Z",
+              "updatedAt": "2026-07-28T02:50:57.000Z",
+              "uid": "35240-7b4760a9-1836-4f62-bdb3-d13a13879053"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:57.000Z",
+          "updatedAt": "2026-07-28T02:50:57.000Z",
+          "uid": "35240-cb7cb7f0-cd79-46ad-91fd-e50885cfbb8f"
+        },
+        {
+          "name": "Delete API Proxy",
+          "id": "94c7e1ca-369e-40a9-94f6-b8e831b4b8c8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/APIProxies('{{name}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "APIProxies('{{name}}')"
+              ]
+            },
+            "description": "Delete an API proxy from the platform."
+          },
+          "response": [
+            {
+              "id": "8f756ac7-5280-489e-8860-7841a5291d8d",
+              "name": "API proxy deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/APIProxies('{{name}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "APIProxies('{{name}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:50:57.000Z",
+              "updatedAt": "2026-07-28T02:50:57.000Z",
+              "uid": "35240-8f756ac7-5280-489e-8860-7841a5291d8d"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:57.000Z",
+          "updatedAt": "2026-07-28T02:50:57.000Z",
+          "uid": "35240-94c7e1ca-369e-40a9-94f6-b8e831b4b8c8"
+        }
+      ],
+      "id": "64857313-0084-48f7-b995-6cc32c0e2d6a",
+      "createdAt": "2026-07-28T02:50:57.000Z",
+      "updatedAt": "2026-07-28T02:50:57.000Z",
+      "uid": "35240-64857313-0084-48f7-b995-6cc32c0e2d6a"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "apiportal.access",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{tenantUrl}/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenantUrl",
+      "value": "your-tenant.cfapps.sap.hana.ondemand.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenantUrl}}/apiportal/api/1.0/Management.svc"
+    },
+    {
+      "key": "name",
+      "value": "<string>"
+    }
+  ]
+}

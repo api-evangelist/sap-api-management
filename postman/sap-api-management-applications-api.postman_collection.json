@@ -1,0 +1,247 @@
+{
+  "info": {
+    "_postman_id": "66146cd4-5a7c-4b22-a0ed-3834fef24091",
+    "name": "SAP API Management API Portal API Products Applications API",
+    "description": "The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.\n\nContact Support:\n Name: SAP API Management Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:57.000Z",
+    "updatedAt": "2026-07-28T02:50:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-66146cd4-5a7c-4b22-a0ed-3834fef24091"
+  },
+  "item": [
+    {
+      "name": "Applications",
+      "item": [
+        {
+          "name": "List Applications",
+          "id": "d21fe381-8519-44de-ba27-24aeee3a412e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Applications?$filter=<string>&$top=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Applications"
+              ],
+              "query": [
+                {
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "key": "$top",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieve all developer applications registered in the platform."
+          },
+          "response": [
+            {
+              "id": "8673db2a-0f43-498e-b36a-59a4b27b40e4",
+              "name": "List of applications",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Applications?$filter=<string>&$top=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Applications"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"developerId\": \"<string>\",\n        \"status\": \"Approved\",\n        \"createdAt\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"developerId\": \"<string>\",\n        \"status\": \"Pending\",\n        \"createdAt\": \"<dateTime>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:50:58.000Z",
+              "updatedAt": "2026-07-28T02:50:58.000Z",
+              "uid": "35240-8673db2a-0f43-498e-b36a-59a4b27b40e4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:58.000Z",
+          "updatedAt": "2026-07-28T02:50:58.000Z",
+          "uid": "35240-d21fe381-8519-44de-ba27-24aeee3a412e"
+        },
+        {
+          "name": "Create Application",
+          "id": "bc7cc9c0-0cc3-46f0-a015-f365140a37d6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"developerId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Applications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Applications"
+              ]
+            },
+            "description": "Register a new developer application."
+          },
+          "response": [
+            {
+              "id": "9e049659-a0e5-4721-a3f0-deca8c1d05e4",
+              "name": "Application created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"developerId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Applications"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"developerId\": \"<string>\",\n  \"status\": \"Revoked\",\n  \"createdAt\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:50:58.000Z",
+              "updatedAt": "2026-07-28T02:50:58.000Z",
+              "uid": "35240-9e049659-a0e5-4721-a3f0-deca8c1d05e4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:58.000Z",
+          "updatedAt": "2026-07-28T02:50:58.000Z",
+          "uid": "35240-bc7cc9c0-0cc3-46f0-a015-f365140a37d6"
+        }
+      ],
+      "id": "4dc129bf-6d87-48a1-9f55-69ff43b913c4",
+      "createdAt": "2026-07-28T02:50:58.000Z",
+      "updatedAt": "2026-07-28T02:50:58.000Z",
+      "uid": "35240-4dc129bf-6d87-48a1-9f55-69ff43b913c4"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "apiportal.access",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{tenantUrl}/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenantUrl",
+      "value": "your-tenant.cfapps.sap.hana.ondemand.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenantUrl}}/apiportal/api/1.0/Management.svc"
+    }
+  ]
+}

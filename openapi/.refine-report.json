@@ -1,0 +1,22 @@
+{
+  "provider": "sap-api-management",
+  "sources": [
+    "sap-api-management-api-products-api-openapi.yml",
+    "sap-api-management-api-providers-api-openapi.yml",
+    "sap-api-management-api-proxies-api-openapi.yml",
+    "sap-api-management-applications-api-openapi.yml",
+    "sap-api-management-key-value-maps-api-openapi.yml"
+  ],
+  "outputs": [
+    "sap-api-management-api-products-api-openapi.yml",
+    "sap-api-management-api-providers-api-openapi.yml",
+    "sap-api-management-api-proxies-api-openapi.yml",
+    "sap-api-management-applications-api-openapi.yml",
+    "sap-api-management-key-value-maps-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
