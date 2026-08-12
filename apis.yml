@@ -5,6 +5,18 @@ description: >-
   It provides a self-service developer portal (API Business Hub Enterprise), OpenAPI-based API design tools, policy
   management, and access to the SAP Business Accelerator Hub for discovering and consuming SAP and partner APIs.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-11'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
@@ -226,8 +238,6 @@ common:
     url: vocabulary/sap-api-management-vocabulary.yml
   - type: SpectralRules
     url: rules/sap-api-management-rules.yml
-  - type: Capabilities
-    url: capabilities/api-lifecycle-management.yaml
   - type: JSONLD
     url: json-ld/sap-api-management-context.jsonld
 maintainers:
