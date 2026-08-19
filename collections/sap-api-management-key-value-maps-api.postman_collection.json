@@ -1,0 +1,255 @@
+{
+  "item": [
+    {
+      "id": "93aa7b77-51a3-4532-9375-bdeadcf52683",
+      "name": "Key Value Maps",
+      "description": {
+        "content": "Configuration key-value stores for policy runtime use",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b59980a8-0bf5-491b-8ce6-85b0f7de77c5",
+          "name": "List Key Value Maps",
+          "request": {
+            "name": "List Key Value Maps",
+            "description": {
+              "content": "Retrieve all key-value maps available for policy use at runtime.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "KeyValueMaps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "564c5fdd-69a6-420b-87f7-1f1667eaad1b",
+              "name": "List of key-value maps",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "KeyValueMaps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"encrypted\": false,\n        \"scope\": \"API\"\n      },\n      {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"encrypted\": false,\n        \"scope\": \"API\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50c942a6-5a1e-40cc-abf3-c0106d4a13c9",
+          "name": "Create Key Value Map",
+          "request": {
+            "name": "Create Key Value Map",
+            "description": {
+              "content": "Create a new key-value map for storing configuration values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "KeyValueMaps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"encrypted\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "89a0f91c-d9cc-4a78-b2b7-dbd69a212967",
+              "name": "Key value map created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "KeyValueMaps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"encrypted\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your SAP BTP tenant-specific URL",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant.cfapps.sap.hana.ondemand.com",
+      "key": "tenantUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenantUrl}}/apiportal/api/1.0/Management.svc",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "apiportal.access"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{tenantUrl}/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "64d77bc6-63d0-4b51-892b-3511a5be4564",
+    "name": "SAP API Management API Portal API Products Key Value Maps API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.\n\nContact Support:\n Name: SAP API Management Support",
+      "type": "text/plain"
+    }
+  }
+}

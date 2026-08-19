@@ -1,0 +1,589 @@
+{
+  "item": [
+    {
+      "id": "31a0d776-6bdf-4006-8dec-e46e96602954",
+      "name": "API Proxies",
+      "description": {
+        "content": "Managed API proxies fronting backend services",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c93e2dc-8b59-4b8f-a034-53fc60344321",
+          "name": "List API Proxies",
+          "request": {
+            "name": "List API Proxies",
+            "description": {
+              "content": "Retrieve all API proxies available in the SAP API Management platform. Supports OData query options for filtering and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "APIProxies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "175e44d3-bbea-4d2b-a478-15bb0e548a64",
+              "name": "List of API proxies",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "APIProxies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"version\": \"string\",\n        \"basepath\": \"string\",\n        \"status\": \"Draft\",\n        \"apiProviderId\": \"string\",\n        \"createdAt\": \"1987-04-21T18:46:41.606Z\",\n        \"modifiedAt\": \"1961-04-15T10:23:57.309Z\"\n      },\n      {\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"version\": \"string\",\n        \"basepath\": \"string\",\n        \"status\": \"Inactive\",\n        \"apiProviderId\": \"string\",\n        \"createdAt\": \"1978-02-12T13:55:43.256Z\",\n        \"modifiedAt\": \"2022-12-22T19:47:36.593Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "486878ad-45b1-4378-9397-9aacb1959a69",
+          "name": "Create API Proxy",
+          "request": {
+            "name": "Create API Proxy",
+            "description": {
+              "content": "Create a new API proxy in the SAP API Management platform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "APIProxies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"apiProviderId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f701f38f-dac9-4dc1-8781-fb1fe26ba1dd",
+              "name": "API proxy created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "APIProxies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"apiProviderId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"version\": \"string\",\n  \"basepath\": \"string\",\n  \"status\": \"Inactive\",\n  \"apiProviderId\": \"string\",\n  \"createdAt\": \"1964-08-19T01:39:39.379Z\",\n  \"modifiedAt\": \"1951-12-30T20:47:34.367Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20c19d8c-6e77-4e3f-a0ed-83ee0e7cf8b6",
+          "name": "Get API Proxy",
+          "request": {
+            "name": "Get API Proxy",
+            "description": {
+              "content": "Retrieve a specific API proxy by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "APIProxies('{{name}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9d13c9f-8bbc-4433-907b-3e09c0e31bc1",
+              "name": "API proxy details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "APIProxies('{{name}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"version\": \"string\",\n  \"basepath\": \"string\",\n  \"status\": \"Inactive\",\n  \"apiProviderId\": \"string\",\n  \"createdAt\": \"1964-08-19T01:39:39.379Z\",\n  \"modifiedAt\": \"1951-12-30T20:47:34.367Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5310c096-2d84-4769-8f28-8bfdaaea462b",
+          "name": "Update API Proxy",
+          "request": {
+            "name": "Update API Proxy",
+            "description": {
+              "content": "Update an existing API proxy configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "APIProxies('{{name}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"apiProviderId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f144f227-a55a-4c67-9c32-5a254a088d9d",
+              "name": "API proxy updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "APIProxies('{{name}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"basepath\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<string>\",\n  \"apiProviderId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"version\": \"string\",\n  \"basepath\": \"string\",\n  \"status\": \"Inactive\",\n  \"apiProviderId\": \"string\",\n  \"createdAt\": \"1964-08-19T01:39:39.379Z\",\n  \"modifiedAt\": \"1951-12-30T20:47:34.367Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1f66c24-fa53-474c-9bd4-ec6b6cb8e78c",
+          "name": "Delete API Proxy",
+          "request": {
+            "name": "Delete API Proxy",
+            "description": {
+              "content": "Delete an API proxy from the platform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "APIProxies('{{name}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71c26e9c-0000-4477-b67b-5b73e1400b8d",
+              "name": "API proxy deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "APIProxies('{{name}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your SAP BTP tenant-specific URL",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant.cfapps.sap.hana.ondemand.com",
+      "key": "tenantUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenantUrl}}/apiportal/api/1.0/Management.svc",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "name"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "apiportal.access"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{tenantUrl}/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f47e0225-f011-42b2-b8e8-04c72ca28cf5",
+    "name": "SAP API Management API Portal API Products API Proxies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.\n\nContact Support:\n Name: SAP API Management Support",
+      "type": "text/plain"
+    }
+  }
+}

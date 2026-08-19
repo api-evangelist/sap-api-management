@@ -1,0 +1,476 @@
+{
+  "item": [
+    {
+      "id": "105f2615-f7eb-45a4-8a88-3979270b9650",
+      "name": "API Products",
+      "description": {
+        "content": "Collections of APIs bundled as products for developer consumption",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74fbdadf-0e98-4bee-8fe9-ba3e08d09c49",
+          "name": "List API Products",
+          "request": {
+            "name": "List API Products",
+            "description": {
+              "content": "Retrieve all API products available in the developer portal. Products bundle API proxies for controlled access and monetization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "APIProducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ea312b7-d6d3-4fd2-8b41-8e50d9e5ff2e",
+              "name": "List of API products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "APIProducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"scope\": \"Public\",\n        \"status\": \"Draft\",\n        \"createdAt\": \"1970-05-16T20:01:25.582Z\",\n        \"modifiedAt\": \"1998-09-29T23:59:07.239Z\"\n      },\n      {\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"scope\": \"Internal\",\n        \"status\": \"Draft\",\n        \"createdAt\": \"1994-04-13T11:13:17.018Z\",\n        \"modifiedAt\": \"2004-02-17T01:57:39.781Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac72a1f3-ec7c-4d29-af66-06ab22ee4609",
+          "name": "Create API Product",
+          "request": {
+            "name": "Create API Product",
+            "description": {
+              "content": "Create a new API product bundling one or more API proxies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "APIProducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "572a4ed6-3e86-48f2-ad00-f78b44ef485c",
+              "name": "API product created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "APIProducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"scope\": \"Public\",\n  \"status\": \"Published\",\n  \"createdAt\": \"1978-04-05T07:16:18.946Z\",\n  \"modifiedAt\": \"1994-10-23T04:59:33.709Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78b6cbc8-6b31-46a9-ba3b-1aa091f36404",
+          "name": "Get API Product",
+          "request": {
+            "name": "Get API Product",
+            "description": {
+              "content": "Retrieve a specific API product by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "APIProducts('{{name}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79d67191-390b-467f-822b-a2a2576ef20a",
+              "name": "API product details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "APIProducts('{{name}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"scope\": \"Public\",\n  \"status\": \"Published\",\n  \"createdAt\": \"1978-04-05T07:16:18.946Z\",\n  \"modifiedAt\": \"1994-10-23T04:59:33.709Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08058b1a-1488-4907-b469-8b33fed27640",
+          "name": "Delete API Product",
+          "request": {
+            "name": "Delete API Product",
+            "description": {
+              "content": "Delete an API product from the platform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "APIProducts('{{name}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SAP BTP tenant-specific URL",
+                  "type": "any",
+                  "value": "{{tenantUrl}}",
+                  "key": "tenantUrl"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "820c7d10-ae99-4d1b-b1b6-cc36943c8cf1",
+              "name": "API product deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "APIProducts('{{name}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SAP BTP tenant-specific URL",
+                      "type": "any",
+                      "value": "{{tenantUrl}}",
+                      "key": "tenantUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your SAP BTP tenant-specific URL",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant.cfapps.sap.hana.ondemand.com",
+      "key": "tenantUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenantUrl}}/apiportal/api/1.0/Management.svc",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "name"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "apiportal.access"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{tenantUrl}/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "867441b7-58f9-49f0-b8f4-89f463b49888",
+    "name": "SAP API Management API Portal API Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.\n\nContact Support:\n Name: SAP API Management Support",
+      "type": "text/plain"
+    }
+  }
+}

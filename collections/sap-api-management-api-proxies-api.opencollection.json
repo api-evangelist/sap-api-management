@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP API Management API Portal API Products API Proxies API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{tenantUrl}/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "API Proxies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List API Proxies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenantUrl}/apiportal/api/1.0/Management.svc/APIProxies",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all API proxies available in the SAP API Management platform. Supports OData query options for filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Create API Proxy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenantUrl}/apiportal/api/1.0/Management.svc/APIProxies",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new API proxy in the SAP API Management platform."
+        },
+        {
+          "info": {
+            "name": "Get API Proxy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenantUrl}/apiportal/api/1.0/Management.svc/APIProxies(':name')",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific API proxy by name."
+        },
+        {
+          "info": {
+            "name": "Update API Proxy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tenantUrl}/apiportal/api/1.0/Management.svc/APIProxies(':name')",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing API proxy configuration."
+        },
+        {
+          "info": {
+            "name": "Delete API Proxy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenantUrl}/apiportal/api/1.0/Management.svc/APIProxies(':name')",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an API proxy from the platform."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
