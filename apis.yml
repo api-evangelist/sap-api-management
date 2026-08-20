@@ -73,6 +73,11 @@ apis:
   - API Catalog
   - Developer Portal
   - SAP BTP
+  - Self-Service
+  tags_raw:
+  - API Catalog
+  - Developer Portal
+  - SAP BTP
   - Self Service
   properties:
   - type: Documentation
@@ -158,6 +163,8 @@ apis:
   description: Developer applications consuming API products
   humanURL: https://help.sap.com/docs/sap-api-management
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
