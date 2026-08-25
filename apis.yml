@@ -1,9 +1,9 @@
 aid: sap-api-management
 name: SAP API Management
-description: >-
-  SAP API Management is an API platform that enables organizations to design, import, publish, secure, and monitor APIs.
-  It provides a self-service developer portal (API Business Hub Enterprise), OpenAPI-based API design tools, policy
-  management, and access to the SAP Business Accelerator Hub for discovering and consuming SAP and partner APIs.
+description: SAP API Management is an API platform that enables organizations to design, import, publish, secure,
+  and monitor APIs. It provides a self-service developer portal (API Business Hub Enterprise), OpenAPI-based API
+  design tools, policy management, and access to the SAP Business Accelerator Hub for discovering and consuming
+  SAP and partner APIs.
 type: Index
 deliveryModel:
   model: saas
@@ -32,20 +32,19 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sap-api-management.png
 tags:
-  - API Management
-  - Developer Portal
-  - Enterprise
-  - SAP
+- API Management
+- Developer Portal
+- Enterprise
+- SAP
 url: https://raw.githubusercontent.com/api-evangelist/sap-api-management/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-05-19'
+modified: '2026-08-21'
 x-profiled: 2026-05
 specificationVersion: '0.23'
 apis:
 - aid: sap-api-management:sap-api-management
   name: SAP API Management API
-  description: >-
-    The SAP API Management API provides programmatic access to manage APIs, API products, developer portal
+  description: The SAP API Management API provides programmatic access to manage APIs, API products, developer portal
     settings, and access control through the SAP API Management platform on SAP Business Technology Platform.
   humanURL: https://help.sap.com/docs/sap-api-management
   tags:
@@ -63,11 +62,9 @@ apis:
     url: https://help.sap.com/docs/sap-api-management/sap-api-management/user-authentication
 - aid: sap-api-management:sap-api-business-hub-enterprise
   name: SAP API Business Hub Enterprise API
-  description: >-
-    The SAP API Business Hub Enterprise (also called API Management Developer Portal) API enables programmatic
-    management of the self-service developer portal. It supports managing API catalog content, developer
-    registrations, application subscriptions, and portal customizations for consumer-facing API discovery
-    and consumption.
+  description: The SAP API Business Hub Enterprise (also called API Management Developer Portal) API enables programmatic
+    management of the self-service developer portal. It supports managing API catalog content, developer registrations,
+    application subscriptions, and portal customizations for consumer-facing API discovery and consumption.
   humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/consume-apis
   tags:
   - API Catalog
@@ -86,10 +83,9 @@ apis:
     url: https://api.sap.com/api/APIMgmtDevPortal/overview
 - aid: sap-api-management:sap-api-management-analytics
   name: SAP API Management Analytics API
-  description: >-
-    The SAP API Management Analytics API provides access to API usage metrics, performance statistics,
-    error rates, and traffic analytics for APIs managed on the SAP API Management platform. It supports
-    building custom dashboards and monitoring integrations using aggregated and raw usage data.
+  description: The SAP API Management Analytics API provides access to API usage metrics, performance statistics,
+    error rates, and traffic analytics for APIs managed on the SAP API Management platform. It supports building
+    custom dashboards and monitoring integrations using aggregated and raw usage data.
   humanURL: https://help.sap.com/docs/sap-api-management/sap-api-management/analyze-apis
   tags:
   - Analytics
@@ -199,54 +195,61 @@ apis:
   - type: JSONSchema
     url: json-schema/sap-api-management-api-product-schema.json
 common:
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/sap-api-management/overview
-  - type: AgenticAccess
-    url: agentic-access/sap-api-management-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/sap-api-management-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/sap-api-management-domain-security.yml
-  - type: Authentication
-    url: authentication/sap-api-management-authentication.yml
-  - type: OAuthScopes
-    url: scopes/sap-api-management-scopes.yml
-  - type: Portal
-    url: https://api.sap.com/
-  - type: Documentation
-    url: https://help.sap.com/docs/sap-api-management
-  - type: Website
-    url: https://www.sap.com/products/technology-platform/api-management.html
-  - type: GettingStarted
-    url: https://help.sap.com/docs/sap-api-management/sap-api-management/what-is-api-management
-  - type: Authentication
-    url: https://help.sap.com/docs/sap-api-management/sap-api-management/user-authentication
-  - type: Blog
-    url: https://blogs.sap.com/tags/73554900100700002381/
-  - type: Community
-    url: https://community.sap.com/topics/api-management
-  - type: Support
-    url: https://support.sap.com/en/product/support-by-product/73554900100700002381.html
-  - type: StatusPage
-    url: https://www.sap.com/about/trust-center/cloud-service-status.html
-  - type: GitHubOrganization
-    url: https://github.com/SAP-samples
-  - type: GitHubRepository
-    url: https://github.com/SAP/apibusinesshub-api-recipes
-  - type: TermsOfService
-    url: https://www.sap.com/about/agreements/policies/cloud-platform.html
-  - type: PrivacyPolicy
-    url: https://www.sap.com/about/legal/privacy.html
-  - type: YouTube
-    url: https://www.youtube.com/@SAPTechnology
-  - type: StackOverflow
-    url: https://stackoverflow.com/questions/tagged/sap-api-management
-  - type: Vocabulary
-    url: vocabulary/sap-api-management-vocabulary.yml
-  - type: SpectralRules
-    url: rules/sap-api-management-rules.yml
-  - type: JSONLD
-    url: json-ld/sap-api-management-context.jsonld
+- type: ParentCompany
+  url: https://apis.io/providers/sap/
+  name: Sap
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/sap-api-management/overview
+- type: AgenticAccess
+  url: agentic-access/sap-api-management-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/sap-api-management-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/sap-api-management-domain-security.yml
+- type: Authentication
+  url: authentication/sap-api-management-authentication.yml
+- type: OAuthScopes
+  url: scopes/sap-api-management-scopes.yml
+- type: Portal
+  url: https://api.sap.com/
+- type: Documentation
+  url: https://help.sap.com/docs/sap-api-management
+- type: Website
+  url: https://www.sap.com/products/technology-platform/api-management.html
+- type: GettingStarted
+  url: https://help.sap.com/docs/sap-api-management/sap-api-management/what-is-api-management
+- type: Authentication
+  url: https://help.sap.com/docs/sap-api-management/sap-api-management/user-authentication
+- type: Blog
+  url: https://blogs.sap.com/tags/73554900100700002381/
+- type: Community
+  url: https://community.sap.com/topics/api-management
+- type: Support
+  url: https://support.sap.com/en/product/support-by-product/73554900100700002381.html
+- type: StatusPage
+  url: https://www.sap.com/about/trust-center/cloud-service-status.html
+- type: GitHubOrganization
+  url: https://github.com/SAP-samples
+- type: GitHubRepository
+  url: https://github.com/SAP/apibusinesshub-api-recipes
+- type: TermsOfService
+  url: https://www.sap.com/about/agreements/policies/cloud-platform.html
+- type: PrivacyPolicy
+  url: https://www.sap.com/about/legal/privacy.html
+- type: YouTube
+  url: https://www.youtube.com/@SAPTechnology
+- type: StackOverflow
+  url: https://stackoverflow.com/questions/tagged/sap-api-management
+- type: Vocabulary
+  url: vocabulary/sap-api-management-vocabulary.yml
+- type: SpectralRules
+  url: rules/sap-api-management-rules.yml
+- type: JSONLD
+  url: json-ld/sap-api-management-context.jsonld
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-parent: sap
+x-relationship: product
