@@ -1,11 +1,7 @@
 {
   "provider": "sap-api-management",
   "sources": [
-    "sap-api-management-api-products-api-openapi.yml",
-    "sap-api-management-api-providers-api-openapi.yml",
-    "sap-api-management-api-proxies-api-openapi.yml",
-    "sap-api-management-applications-api-openapi.yml",
-    "sap-api-management-key-value-maps-api-openapi.yml"
+    "_original/sap-api-management-portal-openapi.yml"
   ],
   "outputs": [
     "sap-api-management-api-products-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sap-api-management-portal-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "sap-api-management-api-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sap-api-management-api-providers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sap-api-management-api-proxies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sap-api-management-applications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sap-api-management-key-value-maps-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

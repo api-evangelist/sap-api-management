@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SAP API Management API Portal API Products API Proxies API
+  title: SAP API Management API Portal API Proxies API
   description: 'The SAP API Management API Portal API provides RESTful endpoints built on OData principles for programmatically managing API proxies, API products, applications, developers, policies, and key-value maps within the SAP API Management platform. Authentication uses OAuth 2.0 with credentials from the service key generated for the API Portal Access Plan. The base URL is tenant-specific: https://{tenant-url}/apiportal/api/1.0/Management.svc.'
   version: '1.0'
   contact:
@@ -130,24 +130,16 @@ paths:
           description: API proxy deleted
 components:
   schemas:
-    APIProxyInput:
+    APIProxiesResponse:
       type: object
-      required:
-      - name
-      - basepath
       properties:
-        name:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        version:
-          type: string
-        basepath:
-          type: string
-        apiProviderId:
-          type: string
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIProxy'
     APIProxy:
       type: object
       properties:
@@ -177,16 +169,24 @@ components:
         modifiedAt:
           type: string
           format: date-time
-    APIProxiesResponse:
+    APIProxyInput:
       type: object
+      required:
+      - name
+      - basepath
       properties:
-        d:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/APIProxy'
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        basepath:
+          type: string
+        apiProviderId:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2
