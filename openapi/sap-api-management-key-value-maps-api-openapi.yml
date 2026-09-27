@@ -53,6 +53,27 @@ paths:
           description: Key value map created
 components:
   schemas:
+    KeyValueMapInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        encrypted:
+          type: boolean
+    KeyValueMapsResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/KeyValueMap'
     KeyValueMap:
       type: object
       properties:
@@ -67,27 +88,6 @@ components:
           enum:
           - Environment
           - API
-    KeyValueMapsResponse:
-      type: object
-      properties:
-        d:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/KeyValueMap'
-    KeyValueMapInput:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        encrypted:
-          type: boolean
   securitySchemes:
     OAuth2:
       type: oauth2

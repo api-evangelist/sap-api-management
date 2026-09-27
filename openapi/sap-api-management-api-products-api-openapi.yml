@@ -119,16 +119,6 @@ components:
           type: string
         scope:
           type: string
-    APIProductsResponse:
-      type: object
-      properties:
-        d:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/APIProduct'
     APIProduct:
       type: object
       properties:
@@ -156,6 +146,16 @@ components:
         modifiedAt:
           type: string
           format: date-time
+    APIProductsResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIProduct'
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -140,6 +140,24 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/APIProxy'
+    APIProxyInput:
+      type: object
+      required:
+      - name
+      - basepath
+      properties:
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        basepath:
+          type: string
+        apiProviderId:
+          type: string
     APIProxy:
       type: object
       properties:
@@ -169,24 +187,6 @@ components:
         modifiedAt:
           type: string
           format: date-time
-    APIProxyInput:
-      type: object
-      required:
-      - name
-      - basepath
-      properties:
-        name:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        version:
-          type: string
-        basepath:
-          type: string
-        apiProviderId:
-          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -66,6 +66,16 @@ paths:
                 $ref: '#/components/schemas/Application'
 components:
   schemas:
+    ApplicationsResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/Application'
     ApplicationInput:
       type: object
       required:
@@ -97,16 +107,6 @@ components:
         createdAt:
           type: string
           format: date-time
-    ApplicationsResponse:
-      type: object
-      properties:
-        d:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/Application'
   securitySchemes:
     OAuth2:
       type: oauth2
