@@ -139,16 +139,6 @@ paths:
           description: API provider deleted
 components:
   schemas:
-    APIProvidersResponse:
-      type: object
-      properties:
-        d:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/APIProvider'
     APIProvider:
       type: object
       properties:
@@ -175,6 +165,16 @@ components:
         modifiedAt:
           type: string
           format: date-time
+    APIProvidersResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIProvider'
     APIProviderInput:
       type: object
       required:

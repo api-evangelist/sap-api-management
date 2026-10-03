@@ -66,16 +66,6 @@ paths:
                 $ref: '#/components/schemas/Application'
 components:
   schemas:
-    ApplicationsResponse:
-      type: object
-      properties:
-        d:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/Application'
     ApplicationInput:
       type: object
       required:
@@ -87,6 +77,16 @@ components:
           type: string
         developerId:
           type: string
+    ApplicationsResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/Application'
     Application:
       type: object
       properties:
