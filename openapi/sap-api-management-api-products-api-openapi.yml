@@ -105,30 +105,6 @@ paths:
           description: API product deleted
 components:
   schemas:
-    APIProductInput:
-      type: object
-      required:
-      - name
-      - title
-      properties:
-        name:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        scope:
-          type: string
-    APIProductsResponse:
-      type: object
-      properties:
-        d:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/APIProduct'
     APIProduct:
       type: object
       properties:
@@ -156,6 +132,30 @@ components:
         modifiedAt:
           type: string
           format: date-time
+    APIProductsResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIProduct'
+    APIProductInput:
+      type: object
+      required:
+      - name
+      - title
+      properties:
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        scope:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

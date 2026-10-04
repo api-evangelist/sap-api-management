@@ -53,16 +53,6 @@ paths:
           description: Key value map created
 components:
   schemas:
-    KeyValueMapsResponse:
-      type: object
-      properties:
-        d:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/KeyValueMap'
     KeyValueMapInput:
       type: object
       required:
@@ -74,6 +64,16 @@ components:
           type: string
         encrypted:
           type: boolean
+    KeyValueMapsResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/KeyValueMap'
     KeyValueMap:
       type: object
       properties:

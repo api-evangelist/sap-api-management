@@ -130,6 +130,34 @@ paths:
           description: API proxy deleted
 components:
   schemas:
+    APIProxyInput:
+      type: object
+      required:
+      - name
+      - basepath
+      properties:
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        basepath:
+          type: string
+        apiProviderId:
+          type: string
+    APIProxiesResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIProxy'
     APIProxy:
       type: object
       properties:
@@ -159,34 +187,6 @@ components:
         modifiedAt:
           type: string
           format: date-time
-    APIProxyInput:
-      type: object
-      required:
-      - name
-      - basepath
-      properties:
-        name:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        version:
-          type: string
-        basepath:
-          type: string
-        apiProviderId:
-          type: string
-    APIProxiesResponse:
-      type: object
-      properties:
-        d:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/APIProxy'
   securitySchemes:
     OAuth2:
       type: oauth2

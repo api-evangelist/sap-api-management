@@ -139,6 +139,36 @@ paths:
           description: API provider deleted
 components:
   schemas:
+    APIProviderInput:
+      type: object
+      required:
+      - name
+      - host
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        host:
+          type: string
+        port:
+          type: integer
+        path:
+          type: string
+        isOnPremise:
+          type: boolean
+        useSSL:
+          type: boolean
+    APIProvidersResponse:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIProvider'
     APIProvider:
       type: object
       properties:
@@ -165,36 +195,6 @@ components:
         modifiedAt:
           type: string
           format: date-time
-    APIProvidersResponse:
-      type: object
-      properties:
-        d:
-          type: object
-          properties:
-            results:
-              type: array
-              items:
-                $ref: '#/components/schemas/APIProvider'
-    APIProviderInput:
-      type: object
-      required:
-      - name
-      - host
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        host:
-          type: string
-        port:
-          type: integer
-        path:
-          type: string
-        isOnPremise:
-          type: boolean
-        useSSL:
-          type: boolean
   securitySchemes:
     OAuth2:
       type: oauth2
