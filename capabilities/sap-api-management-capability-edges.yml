@@ -1,0 +1,35 @@
+slug: sap-api-management
+provider: SAP API Management
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: API Products
+  spec_file: sap-api-management-api-products-api-openapi.yml
+  capability_id: BC-4270
+  capability_id_l1: BC-4270
+  capability_name: Developer Platform & API Ecosystem Management
+  confidence: 0.75
+  evidence: GET /APIProducts  listApiProducts  List API Products; POST /APIProducts  createApiProduct
+  reason: API products are the consumable bundles of API proxies published to developers via the API Business
+    Hub Enterprise portal, squarely within Developer Platform & API Ecosystem Management. L2 left null
+    because the surface straddles public API lifecycle and consumption/plan governance.
+- tag: API Proxies
+  spec_file: sap-api-management-api-proxies-api-openapi.yml
+  capability_id: BC-4270.10
+  capability_id_l1: BC-4270
+  capability_name: Public API Lifecycle Management
+  confidence: 0.75
+  evidence: POST /APIProxies  createApiProxy  Create API Proxy; PUT /APIProxies('{name}')  updateApiProxy
+  reason: Full CRUD over API proxies is the core design/publish/retire lifecycle of APIs exposed to consumers,
+    matching Public API Lifecycle Management; the vendor description confirms 'design, import, publish,
+    secure, and monitor APIs'.
